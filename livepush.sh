@@ -1,4 +1,12 @@
 #!/bin/bash
+
+#########################################################################
+# livepush.sh - stream test pattern to a RTMP capable server            #
+# (c) 2015, Guillaume Vaillant <guillaume AT theflyingbear DOT net      #
+# You can reditribute or modify this under the terms of the MIT Licence #
+# which is available in the LICENCE file.                               #
+#########################################################################
+
 # TODO:
 # - stream to more than one origin server
 # - test input
