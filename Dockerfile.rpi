@@ -1,0 +1,18 @@
+FROM multiarch/debian-debootstrap:armhf-jessie
+
+RUN echo "Did you 'docker run --rm --privileged multiarch/qemu-user-static:register --reset' first?"
+
+RUN echo deb http://mirrordirector.raspbian.org/raspbian/ jessie main non-free contrib rpi firmware > /etc/apt/sources.list
+RUN wget -qO- http://mirrordirector.raspbian.org/raspbian.public.key | apt-key add -
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y --force-yes vim-nox libbz2-1.0=1.0.6-7 file less psmisc rsync unzip openssh-client build-essential git devscripts
+RUN apt-get clean && apt-get autoclean
+
+WORKDIR /usr/src
+
+ENV DEBEMAIL=""
+ENV DEBFULLNAME=""
+
+CMD [ "/bin/bash" ]
+
+# EOF
