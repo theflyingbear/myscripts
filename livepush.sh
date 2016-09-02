@@ -104,9 +104,9 @@ then
 	sspec="-b:v ${vr:-250}000"
 fi
 
-gopts='-v warning -report -stats'
+gopts='-v error -report -stats'
 src="-loop 1 -r 30 -i ${image} -ar 48000 -ac 2 -f s16le -i /dev/zero"
-itext="drawtext=fontfile=/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf:fontsize=32:fontcolor=white:box=1:boxcolor=black:text='%{localtime}':x=(w-text_w)/2:y=(h-text_h-line_h)/2"
+itext="drawtext=fontfile=/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf:fontsize=64:fontcolor=white:box=1:boxcolor=black:text='%{localtime}':x=(w-text_w)/2:y=(h-text_h-line_h)/2"
 vspec="-s ${size} -r ${fr}"
 
 ffmpeg $gopts $src -vf "${itext}" $vcodec $vcopts $vspec $sspec $aspec -f flv -y "rtmp://${origin}/${app}/${stream}"
