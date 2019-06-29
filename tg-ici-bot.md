@@ -14,10 +14,11 @@
 
 ## enable the bot:
 
-```curl -s
-'https://api.telegram.org/botYYYY:ZZZZ/setWebhook?url=https://my.ho.st/some/eventual/path/tg-ici-bot.php?tok=mySuperToken'```
+It's as simple as:
 
-You can check that telegram knows about your webhook:
+`curl -s 'https://api.telegram.org/botYYYY:ZZZZ/setWebhook?url=https://my.ho.st/some/eventual/path/tg-ici-bot.php?tok=mySuperToken'`
+
+You can check that telegram knows about your webhook/bot:
 
 ```% curl -s 'https://api.telegram.org/botYYYY:ZZZZ/getWebhookInfo' | json_pp
 {
@@ -31,7 +32,7 @@ You can check that telegram knows about your webhook:
    },
    "ok" : true
 }
-``
+```
 
 ## using the bot:
 
@@ -50,3 +51,4 @@ guide.
 
 When using `ack` or `check` if the answer is `200`, the alert has been acknowledged.
 Any other value means that something went wrong.
+
